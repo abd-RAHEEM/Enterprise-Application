@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chessboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #333;
+    }
+
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      border: 5px solid #222;
+    }
+
+    .box {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .white {
+      background-color: azure;
+    }
+
+    .black {
+      background-color: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chessboard" id="board">
+    <!-- First row (Black major pieces) -->
+    <div class="white box">♜</div>
+    <div class="black box">♞</div>
+    <div class="white box">♝</div>
+    <div class="black box">♛</div>
+    <div class="white box">♚</div>
+    <div class="black box">♝</div>
+    <div class="white box">♞</div>
+    <div class="black box">♜</div>
+
+    <!-- Second row (Black pawns) -->
+    <div class="black box">♟</div>
+    <div class="white box">♟</div>
+    <div class="black box">♟</div>
+    <div class="white box">♟</div>
+    <div class="black box">♟</div>
+    <div class="white box">♟</div>
+    <div class="black box">♟</div>
+    <div class="white box">♟</div>
+  </div>
+
+  <script>
+    const board = document.getElementById("board");
+
+    // Rows 3 to 6 (empty squares)
+    for (let row = 2; row < 6; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement("div");
+        square.classList.add("box");
+        const isWhite = (row + col) % 2 === 0;
+        square.classList.add(isWhite ? "white" : "black");
+        board.appendChild(square);
+      }
+    }
+
+    // Seventh row (White pawns)
+    for (let col = 0; col < 8; col++) {
+      const square = document.createElement("div");
+      square.classList.add("box");
+      const isWhite = (6 + col) % 2 === 0;
+      square.classList.add(isWhite ? "white" : "black");
+      square.textContent = "♙";
+      board.appendChild(square);
+    }
+
+    // Eighth row (White major pieces)
+    const pieces = ["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"];
+    for (let col = 0; col < 8; col++) {
+      const square = document.createElement("div");
+      square.classList.add("box");
+      const isWhite = (7 + col) % 2 === 0;
+      square.classList.add(isWhite ? "white" : "black");
+      square.textContent = pieces[col];
+      board.appendChild(square);
+    }
+  </script>
+
+</body>
+</html>

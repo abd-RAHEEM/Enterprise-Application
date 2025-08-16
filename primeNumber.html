@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            color: antiquewhite;
+        }
+
+        .var {
+            padding-left: 10px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="box">
+        <h1>Enter a Number</h1>
+        <div class="var">
+            <form id="primeForm">
+                <input type="text" id="numberinp">
+                <button type="submit">Submit</button>
+            </form>
+            <div class="result"></div>
+
+        </div>
+    </div>
+    <script src="primeNumber.js"></script>
+</body>
+
+</html>
