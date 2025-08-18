@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2e3a59;
+            font-family: Arial, Helvetica, sans-serif;
+            color: aliceblue;
+        }
+
+        .calculator {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            width: 280px;
+            /* fixed width to align display & buttons */
+            box-sizing: border-box;
+        }
+
+        #display {
+            width: 100%;
+            /* span full width */
+            height: 60px;
+            margin-bottom: 15px;
+            font-size: 28px;
+            text-align: right;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            background-color: #111827;
+            /* add background color for contrast */
+            box-sizing: border-box;
+        }
+
+        .box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 equal columns */
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #666;
+        }
+
+        button:active {
+            background: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        
+            <input type="text" id="display" disabled placeholder="0">
+            <div class="box">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('/')">/</button>
+            <button onclick="appendValue('*')">*</button>
+            <button onclick="appendValue('-')">-</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('+')">+</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="calculate()">=</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('0')">0</button>
+        </div>
+    </div>
+    <script src="JavaScript/calculator.js"></script>
+</body>
+
+</html>
